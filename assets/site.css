@@ -1,0 +1,78 @@
+/* Shared adjustments keep both static language versions responsive. */
+body { font-family: "DM Sans", "Noto Sans JP", sans-serif; }
+html { scroll-padding-top: 5rem; }
+section { scroll-margin-top: 1rem; }
+.flex > *, .grid > * { min-width: 0; }
+.material-symbols-outlined, button > svg { flex-shrink: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid #05944f; outline-offset: 4px; }
+.header-inner { gap: 16px; }
+.header-actions { flex-shrink: 0; }
+.header-actions button { white-space: nowrap; }
+.language-switch { display: flex; align-items: center; gap: 8px; flex-shrink: 0; font-size: 12px; line-height: 1.5; white-space: nowrap; }
+.language-switch a { display: inline-flex; align-items: center; min-height: 32px; color: #777; text-decoration: none; }
+.language-switch a:hover { color: #111; }
+.language-switch [aria-current="page"] { color: #111; font-weight: 700; }
+.language-switch > span { color: #aaa; }
+.language-switch--footer { font-size: 14px; }
+.pay-summary .space-y-space-8 > div { gap: 12px; align-items: flex-start; }
+.pay-summary .space-y-space-8 > div > .text-right { flex-shrink: 0; }
+.pay-summary .rounded-full { flex-shrink: 0; }
+.cashflow-panel > div:first-child { gap: 16px; flex-wrap: wrap; }
+.cashflow-panel .chart-axis { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 14px; }
+.device-stats { gap: 12px; align-items: stretch; }
+.device-stats > div { flex: 1; }
+#calendar-sync .calendar-preview { font-size: 11px; }
+.hero-kicker { display: block; font-size: .7em; line-height: 1.4; margin-top: 20px; }
+html[lang="en"] h2, html[lang="en"] h3 { text-wrap: balance; }
+html[lang="en"] p { text-wrap: pretty; }
+@media (min-width: 640px) { #calendar-sync .calendar-preview { font-size: 12px; } }
+@media (min-width: 768px) { .cashflow-panel .chart-axis { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+@media (min-width: 1024px) and (max-width: 1279px) { .site-nav { display: none !important; } }
+@media (min-width: 1024px) {
+ .grid > .pay-summary { grid-column: span 5 / span 5; }
+ .grid > .cashflow-panel { grid-column: span 7 / span 7; }
+}
+@media (max-width: 639px) {
+ .header-inner { gap: 8px; padding: 0 12px; }
+ .header-actions { gap: 6px; }
+ .header-actions > button:first-of-type { display: none; }
+ .header-actions > button { padding: 9px 12px; font-size: 12px; }
+ .language-switch--header { font-size: 11px; gap: 5px; }
+ .header-inner > div:first-child { gap: 6px; }
+ .header-inner > div:first-child .text-headline-sm { font-size: 18px; }
+ .metrics-grid > div { padding: 20px 10px; }
+ .metrics-grid .text-display-md { font-size: 32px; }
+ .metric-unit { font-size: 14px; }
+ .device-stats { flex-wrap: wrap; gap: 8px; }
+ .device-stats > div { padding: 10px; }
+ .device-stats .text-headline-sm { font-size: 17px; }
+ .pay-summary .space-y-space-8 > div { flex-wrap: wrap; }
+ .cashflow-panel { padding: 20px 16px; }
+ html[lang="en"] #features > div > div:first-child { gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+@media (max-width: 639px) { .pay-summary .text-right { text-align: left; } }
+@media (max-width: 359px) {
+ #calendar-sync .calendar-preview > div { padding: 4px 1px; }
+ #calendar-sync .calendar-preview { letter-spacing: 0; }
+}
+
+/* English headings wrap by phrase rather than inheriting Japanese line breaks. */
+html[lang="en"] .hero-title { text-wrap: balance; }
+html[lang="en"] .hero-kicker-line { display: block; }
+html[lang="en"] #features > div > div:first-child { gap: 32px; }
+html[lang="en"] #features > div > div:first-child > * { flex: 1; }
+@media (max-width: 639px) {
+ html[lang="en"] .hero-title { font-size: clamp(26px, 7.5vw, 36px); line-height: 1.2; }
+ html[lang="en"] .hero-kicker { font-size: clamp(18px, 5vw, 24px); line-height: 1.45; }
+}
+
+@media (max-width: 639px) {
+ html[lang="en"] .preview-chrome { gap: 8px; padding-inline: 12px; }
+ html[lang="en"] .preview-chrome > div:first-child { gap: 4px; }
+ html[lang="en"] .preview-chrome > div:first-child > .rounded-full { width: 6px; height: 6px; flex-shrink: 0; }
+ html[lang="en"] .preview-chrome .font-mono { margin-left: 4px; font-size: 10px; white-space: nowrap; }
+ html[lang="en"] .preview-chrome > div:last-child { flex-shrink: 0; }
+ html[lang="en"] .preview-chrome > div:last-child > span { font-size: 9px; white-space: nowrap; }
+}
