@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ShiftNote (シフトノート) | がんばった分が、ちゃんと見える。</title>
+<!-- Google Fonts: Manrope & Noto Sans JP -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#dbdad4",
+            "tertiary-fixed-dim": "#c3c8be",
+            "surface-tint": "#3f665a",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#82aa9d",
+            "secondary-fixed-dim": "#bacf80",
+            "on-primary-fixed-variant": "#274e43",
+            "on-tertiary-fixed-variant": "#434840",
+            "tertiary-fixed": "#dfe4d9",
+            "on-secondary-container": "#596b28",
+            "surface": "#faf9f3",
+            "on-surface-variant": "#414845",
+            "primary-container": "#173f35",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#f2f1eb",
+            "on-secondary-fixed-variant": "#3c4d0b",
+            "background": "#faf9f3",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#1f251e",
+            "on-secondary-fixed": "#161f00",
+            "surface-container-low": "#f5f4ee",
+            "on-background": "#1b1c19",
+            "on-primary-fixed": "#002019",
+            "surface-container-high": "#e9e8e2",
+            "on-error": "#ffffff",
+            "tertiary-container": "#353a33",
+            "surface-variant": "#e3e3dd",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#181d16",
+            "inverse-surface": "#30312d",
+            "surface-bright": "#faf9f3",
+            "secondary": "#536523",
+            "surface-container": "#efeee8",
+            "secondary-container": "#d6ec9a",
+            "primary-fixed": "#c1ecdd",
+            "on-surface": "#1b1c19",
+            "inverse-primary": "#a6cfc1",
+            "outline": "#717975",
+            "primary-fixed-dim": "#a6cfc1",
+            "outline-variant": "#c0c8c4",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#d6ec9a",
+            "on-tertiary-container": "#9ea49a",
+            "primary": "#002920",
+            "surface-container-highest": "#e3e3dd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-2xl": "4rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem"
+          },
+          "fontFamily": {
+            "numeric-display": ["Manrope", "sans-serif"],
+            "label-sm": ["Manrope", "sans-serif"],
+            "body-lg": ["Noto Sans JP", "sans-serif"],
+            "label-md": ["Manrope", "sans-serif"],
+            "headline-md": ["Noto Sans JP", "sans-serif"],
+            "headline-sm": ["Noto Sans JP", "sans-serif"],
+            "body-md": ["Noto Sans JP", "sans-serif"],
+            "headline-lg": ["Noto Sans JP", "sans-serif"],
+            "display-lg-mobile": ["Noto Sans JP", "sans-serif"],
+            "body-sm": ["Noto Sans JP", "sans-serif"],
+            "display-lg": ["Noto Sans JP", "sans-serif"],
+            "numeric-md": ["Manrope", "sans-serif"]
+          },
+          "fontSize": {
+            "numeric-display": [
+              "38px",
+              {
+                "lineHeight": "46px",
+                "letterSpacing": "-0.03em",
+                "fontWeight": "700"
+              }
+            ],
+            "label-sm": [
+              "11px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.08em",
+                "fontWeight": "500"
+              }
+            ],
+            "body-lg": [
+              "17px",
+              {
+                "lineHeight": "28px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "400"
+              }
+            ],
+            "label-md": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.06em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-md": [
+              "24px",
+              {
+                "lineHeight": "34px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "500"
+              }
+            ],
+            "headline-sm": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "letterSpacing": "0",
+                "fontWeight": "500"
+              }
+            ],
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "24px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-lg": [
+              "32px",
+              {
+                "lineHeight": "42px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "display-lg-mobile": [
+              "34px",
+              {
+                "lineHeight": "44px",
+                "letterSpacing": "-0.015em",
+                "fontWeight": "600"
+              }
+            ],
+            "body-sm": [
+              "13px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0.015em",
+                "fontWeight": "400"
+              }
+            ],
+            "display-lg": [
+              "48px",
+              {
+                "lineHeight": "60px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "600"
+              }
+            ],
+            "numeric-md": [
+              "22px",
+              {
+                "lineHeight": "30px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "600"
+              }
+            ]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    /* Subtle custom details accordion animation marker removal */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary .toggle-icon {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-secondary-container selection:text-primary">
+<!-- ========================================================================= -->
+<!-- 1. HEADER (TopNavBar from Shared Components JSON)                         -->
+<!-- ========================================================================= -->
+<header class="bg-surface/90 dark:bg-surface/90 backdrop-blur-md text-primary dark:text-inverse-primary docked full-width top-0 sticky z-50 border-b border-surface-variant dark:border-tertiary-container flat no shadows">
+<div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo Anchor -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-surface flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_month">calendar_month</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-inverse-primary tracking-tight">ShiftNote</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm tracking-widest border border-outline-variant/40">β</span>
+</div>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8 text-body-md font-body-md">
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-surface-bright transition-colors" href="#features">特徴</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-surface-bright transition-colors" href="#how-it-works">使い方</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-surface-bright transition-colors" href="#faq">よくある質問</a>
+</nav>
+<!-- Right Accessories / Actions -->
+<div class="flex items-center gap-5">
+<div class="hidden sm:flex items-center gap-1 text-on-surface-variant text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="language">language</span>
+<span class="font-semibold text-primary">JA</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">EN</span>
+</div>
+<a class="text-body-md font-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#login">
+          ログイン
+        </a>
+<a class="inline-flex items-center justify-center bg-primary-container hover:bg-tertiary-container text-surface px-5 py-2.5 rounded-full font-label-md text-label-md tracking-wider scale-[0.99] active:opacity-90 transition-all shadow-sm" href="#cta">
+          無料で始める ↗
+        </a>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 2. ASYMMETRIC SPLIT HERO                                                  -->
+<!-- ========================================================================= -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 pt-12 md:pt-20 pb-20 md:pb-28">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+<!-- Left Column (Editorial Headline & Value Prop) -->
+<div class="lg:col-span-6 flex flex-col items-start pr-0 lg:pr-4">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md text-label-md tracking-wider mb-6 border border-outline-variant/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>シフトと、お金を。もっとシンプルに。</span>
+</div>
+<h1 class="text-[44px] md:text-[56px] leading-[1.18] font-bold text-primary tracking-tight font-headline-lg mb-6">
+          がんばった分が、<br/>
+<span class="text-surface-tint">ちゃんと見える。</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed mb-8 max-w-xl">
+          掛け持ちバイトの給料も、次の引き落としも。<br/>
+          いつものカレンダーから、これからのお金を見通そう。
+        </p>
+<!-- CTA Cluster -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-4">
+<a class="inline-flex items-center justify-center gap-3 bg-primary-container hover:bg-tertiary-container text-surface px-8 py-4 rounded-xl font-body-md font-medium text-body-md transition-all shadow-sm scale-[0.99] active:opacity-90" href="#start">
+<!-- Discreet Google G Icon -->
+<svg class="w-4 h-4 fill-current opacity-90" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path>
+</svg>
+<span>Googleで無料ではじめる</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 border border-outline-variant bg-surface hover:bg-surface-container-low text-primary px-7 py-4 rounded-xl font-body-md font-medium text-body-md transition-colors" href="#demo">
+<span>デモを見る</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+<p class="text-body-sm font-body-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle">check_circle</span>
+          基本機能は無料 · クレジットカード登録不要
+        </p>
+</div>
+<!-- Right Column (Calm Sage Container + Realistic Desktop Mockup) -->
+<div class="lg:col-span-6 relative">
+<div class="p-4 md:p-6 rounded-3xl bg-tertiary-fixed/60 border border-outline-variant/40">
+<!-- Mockup Card -->
+<div class="bg-surface-container-lowest rounded-2xl border border-surface-variant p-6 shadow-sm">
+<!-- Top Bar -->
+<div class="flex items-center justify-between pb-5 mb-5 border-b border-surface-variant">
+<div class="flex items-center gap-2.5">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md font-medium text-on-surface">2026年10月 / ダッシュボード</span>
+</div>
+<span class="px-2.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+                デモデータ
+              </span>
+</div>
+<!-- Big Metric -->
+<div class="mb-6">
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-1">今月の給与見込み</p>
+<div class="flex items-baseline gap-2">
+<span class="font-numeric-display text-numeric-display text-primary tracking-tight">¥142,600</span>
+<span class="text-body-sm font-body-sm text-surface-tint">（確定済み 42時間）</span>
+</div>
+</div>
+<!-- Employer Breakdown List -->
+<div class="space-y-3 mb-6">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-surface-variant/60">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface">カフェ</p>
+<p class="font-label-sm text-label-sm text-outline">時給 ¥1,150 · 締め日: 末日</p>
+</div>
+</div>
+<span class="font-numeric-md text-numeric-md text-primary">¥58,200</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-surface-variant/60">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-tint"></span>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface">配送</p>
+<p class="font-label-sm text-label-sm text-outline">時給 ¥1,350 · 締め日: 20日</p>
+</div>
+</div>
+<span class="font-numeric-md text-numeric-md text-primary">¥54,400</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-low border border-surface-variant/60">
+<div class="flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-on-secondary-container"></span>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface">家庭教師</p>
+<p class="font-label-sm text-label-sm text-outline">時給 ¥2,000 · 締め日: 15日</p>
+</div>
+</div>
+<span class="font-numeric-md text-numeric-md text-primary">¥30,000</span>
+</div>
+</div>
+<!-- Step Cash Flow Chart Preview -->
+<div class="p-4 rounded-xl bg-surface-container border border-surface-variant">
+<div class="flex items-center justify-between mb-3">
+<p class="font-body-sm text-body-sm font-medium text-on-surface">次の給料日までの残高推移</p>
+<span class="text-label-sm font-label-sm text-outline">10/15 - 11/15</span>
+</div>
+<!-- SVG Step Line Chart -->
+<div class="relative h-24 w-full">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 400 90">
+<!-- Subtle grid hairlines -->
+<line stroke="#E3E3DD" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="400" y1="20" y2="20"></line>
+<line stroke="#E3E3DD" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="400" y1="60" y2="60"></line>
+<!-- Step Trajectory -->
+<path d="M 0 55 L 70 55 L 70 70 L 160 70 L 160 25 L 250 25 L 250 40 L 330 40 L 330 15 L 400 15" fill="none" stroke="#173F35" stroke-linejoin="miter" stroke-width="2.5"></path>
+<!-- Payday Markers -->
+<circle cx="160" cy="25" fill="#D7ED9B" r="4.5" stroke="#173F35" stroke-width="2"></circle>
+<circle cx="330" cy="15" fill="#D7ED9B" r="4.5" stroke="#173F35" stroke-width="2"></circle>
+</svg>
+<!-- Floating Mini Card Highlight -->
+<div class="absolute -top-3 right-6 bg-primary-container text-surface px-3 py-1.5 rounded-lg shadow-md border border-primary text-label-sm font-label-sm flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>次の入金 11/10</span>
+<span class="font-bold text-secondary-container">¥58,200</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. HORIZONTAL BENEFIT STRIP                                               -->
+<!-- ========================================================================= -->
+<section class="border-y border-surface-variant bg-surface-container-low/70 py-7">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-surface-variant">
+<div class="py-3 md:py-0 md:px-8 first:pl-0 flex items-center gap-4">
+<span class="font-numeric-md text-numeric-md text-surface-tint">01</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">シフトの二重入力なし</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Googleカレンダー連携で即座に反映</p>
+</div>
+</div>
+<div class="py-3 md:py-0 md:px-8 flex items-center gap-4">
+<span class="font-numeric-md text-numeric-md text-surface-tint">02</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">バイト先をまとめて管理</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">異なる時給・締め日・手当を一元化</p>
+</div>
+</div>
+<div class="py-3 md:py-0 md:px-8 last:pr-0 flex items-center gap-4">
+<span class="font-numeric-md text-numeric-md text-surface-tint">03</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">入金と支出をひと目で</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">次の給料日と引き落としを同時予測</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. FEATURE SECTION ("LESS CALCULATING, MORE LIVING")                      -->
+<!-- ========================================================================= -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32" id="features">
+<!-- Header -->
+<div class="mb-16 max-w-2xl">
+<p class="font-label-md text-label-md tracking-widest text-surface-tint uppercase mb-2">LESS CALCULATING, MORE LIVING</p>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">シフトの先の、暮らしまで。</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">電卓を叩く時間はもう終わり。働いた時間がそのまま、生活の安心につながります。</p>
+</div>
+<!-- Asymmetric Editorial Grid (1 Large Left + 2 Stacked Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<!-- Left Large Panel (Calendar Sync & Wage Preview) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl border border-surface-variant p-8 md:p-10 flex flex-col justify-between">
+<div class="mb-8">
+<span class="inline-block px-3 py-1 rounded bg-tertiary-fixed text-primary font-numeric-md text-body-sm font-semibold mb-4">01</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">いつものカレンダーが、給料ノートに。</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Googleカレンダーに入力したバイト予定をそのまま読み込み、時給と勤務時間から見込み給与を自動計算します。専用アプリへの転記は不要です。
+          </p>
+</div>
+<!-- Realistic Calendar Week View Visual -->
+<div class="bg-surface-container-low rounded-xl border border-surface-variant p-5">
+<div class="flex items-center justify-between pb-3 border-b border-surface-variant text-body-sm font-body-sm text-outline">
+<span>2026年 10月 第3週</span>
+<span class="font-label-md text-label-md text-surface-tint">カレンダー自動同期中</span>
+</div>
+<div class="grid grid-cols-3 gap-3 pt-4">
+<!-- Day 1 -->
+<div class="p-3 bg-surface-container-lowest rounded-lg border border-surface-variant/80">
+<div class="text-label-sm font-label-sm text-outline mb-2">10/14 (火)</div>
+<div class="bg-secondary/10 border-l-2 border-secondary p-2 rounded mb-2">
+<p class="text-body-sm font-body-sm font-medium text-primary">カフェ</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">17:00 - 22:00 (5h)</p>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 bg-secondary-fixed/50 text-on-secondary-container font-label-sm text-label-sm rounded font-semibold">+ ¥5,750</span>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="p-3 bg-surface-container-lowest rounded-lg border border-surface-variant/80">
+<div class="text-label-sm font-label-sm text-outline mb-2">10/16 (木)</div>
+<div class="bg-surface-tint/10 border-l-2 border-surface-tint p-2 rounded mb-2">
+<p class="text-body-sm font-body-sm font-medium text-primary">配送センター</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">09:00 - 14:00 (5h)</p>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 bg-surface-tint/15 text-primary font-label-sm text-label-sm rounded font-semibold">+ ¥6,750</span>
+</div>
+</div>
+<!-- Day 3 -->
+<div class="p-3 bg-surface-container-lowest rounded-lg border border-surface-variant/80">
+<div class="text-label-sm font-label-sm text-outline mb-2">10/18 (土)</div>
+<div class="bg-on-secondary-container/10 border-l-2 border-on-secondary-container p-2 rounded mb-2">
+<p class="text-body-sm font-body-sm font-medium text-primary">家庭教師</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">19:00 - 21:00 (2h)</p>
+</div>
+<div class="text-right">
+<span class="inline-block px-2 py-0.5 bg-secondary-fixed/50 text-on-secondary-container font-label-sm text-label-sm rounded font-semibold">+ ¥4,000</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Stacked Panels -->
+<div class="lg:col-span-5 flex flex-col gap-8 justify-between">
+<!-- Right Stacked Panel Top (Multiple Employers) -->
+<div class="bg-surface-container-lowest rounded-2xl border border-surface-variant p-6 md:p-8 flex-1">
+<span class="inline-block px-3 py-1 rounded bg-tertiary-fixed text-primary font-numeric-md text-body-sm font-semibold mb-3">02</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">バラバラの給料日を、ひとまとめ。</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-5">
+            バイト先ごとに異なる時給、締め日、支払日、深夜手当や交通費を一度に整理できます。
+          </p>
+<!-- Visual snippet: 3 distinct employer cards with payout dates -->
+<div class="grid grid-cols-3 gap-2.5">
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-surface-variant text-center">
+<span class="text-label-sm font-label-sm text-outline block">支払日</span>
+<span class="font-numeric-md text-numeric-md text-primary font-bold">10日</span>
+<span class="text-label-sm font-label-sm text-surface-tint block mt-0.5">カフェ</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-surface-variant text-center">
+<span class="text-label-sm font-label-sm text-outline block">支払日</span>
+<span class="font-numeric-md text-numeric-md text-primary font-bold">25日</span>
+<span class="text-label-sm font-label-sm text-surface-tint block mt-0.5">配送</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-surface-variant text-center">
+<span class="text-label-sm font-label-sm text-outline block">支払日</span>
+<span class="font-numeric-md text-numeric-md text-primary font-bold">末日</span>
+<span class="text-label-sm font-label-sm text-surface-tint block mt-0.5">家庭教師</span>
+</div>
+</div>
+</div>
+<!-- Right Stacked Panel Bottom (Cash Flow & Debit Warning) -->
+<div class="bg-surface-container-lowest rounded-2xl border border-surface-variant p-6 md:p-8 flex-1">
+<span class="inline-block px-3 py-1 rounded bg-tertiary-fixed text-primary font-numeric-md text-body-sm font-semibold mb-3">03</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">引き落とし前の「大丈夫？」を、なくす。</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-5">
+            家賃やクレカの引き落とし予定と給料日を並べて、手元資金の推移をシンプルに予測します。
+          </p>
+<!-- Visual snippet: Balance buffer before debit -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-surface-tint" data-icon="shield">shield</span>
+<div>
+<span class="font-body-sm text-body-sm font-medium text-primary block">10/27 家賃引き落とし</span>
+<span class="text-label-sm font-label-sm text-outline">予定残高: ¥42,800（安全圏）</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-semibold">残高OK</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. HOW IT WORKS SECTION                                                   -->
+<!-- ========================================================================= -->
+<section class="bg-surface-container-lowest border-y border-surface-variant py-24 md:py-32" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6 md:px-12">
+<!-- Section Title -->
+<div class="text-center max-w-xl mx-auto mb-20">
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-3">はじめるのは、3ステップ。</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">設定は最初の一度だけ。すぐに日々のシフトと給与が結びつきます。</p>
+</div>
+<!-- 3 Steps with quiet connecting horizontal hairline -->
+<div class="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+<!-- Connecting Line on Desktop -->
+<div class="hidden md:block absolute top-7 left-[15%] right-[15%] h-[1px] bg-surface-variant z-0"></div>
+<!-- Step 01 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-low border border-outline-variant/60 flex items-center justify-center font-numeric-md text-numeric-md font-bold text-primary mb-6 shadow-sm">
+            01
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Googleカレンダーを連携</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-xs">
+            お使いのアカウントとワンクリックで接続。カレンダーの予定からシフトを検出します。
+          </p>
+</div>
+<!-- Step 02 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-low border border-outline-variant/60 flex items-center justify-center font-numeric-md text-numeric-md font-bold text-primary mb-6 shadow-sm">
+            02
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">バイト先と時給を登録</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-xs">
+            勤務先ごとの時給や締め日、交通費などをかんたんに設定します。
+          </p>
+</div>
+<!-- Step 03 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-14 h-14 rounded-full bg-surface-container-low border border-outline-variant/60 flex items-center justify-center font-numeric-md text-numeric-md font-bold text-primary mb-6 shadow-sm">
+            03
+          </div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">給料と残高をチェック</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-xs">
+            当月の見込み給与と、次の支払日までの残高推移がすぐに確認できます。
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. PRICING SECTION (Editorial Pale Sage Band)                             -->
+<!-- ========================================================================= -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-28">
+<div class="bg-tertiary-fixed/60 rounded-3xl p-10 md:p-16 border border-outline-variant/50 flex flex-col md:flex-row justify-between items-center gap-12">
+<!-- Left Copy -->
+<div class="max-w-md">
+<span class="font-label-md text-label-md tracking-wider text-surface-tint uppercase block mb-3">PRICING</span>
+<h2 class="font-headline-lg text-headline-lg text-primary leading-snug mb-5">
+          毎日の安心に、<br/>値札はいらない。
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          学生生活や日々の暮らしを整えるためのツールとして、まずは誰でも気軽に使える形で提供しています。
+        </p>
+</div>
+<!-- Right Pricing Card -->
+<div class="w-full md:w-96 bg-surface-container-lowest rounded-2xl p-8 border border-outline-variant/50 shadow-sm">
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-numeric-display text-[52px] leading-none text-primary font-bold">¥0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">/ 月</span>
+</div>
+<p class="font-label-md text-label-md text-surface-tint mb-6">基本機能は無料 / ベータ版</p>
+<div class="space-y-3 pt-4 border-t border-surface-variant mb-8 text-body-sm font-body-sm text-on-surface">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5" data-icon="check">check</span>
+<span>Googleカレンダー連携（予定の自動読み込み）</span>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5" data-icon="check">check</span>
+<span>複数バイト先の個別条件・給料計算</span>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5" data-icon="check">check</span>
+<span>給料日と支出を合わせた残高シミュレーション</span>
+</div>
+</div>
+<a class="w-full inline-flex items-center justify-center bg-primary-container hover:bg-tertiary-container text-surface py-3.5 rounded-xl font-label-md text-label-md transition-all" href="#cta">
+          今すぐ始める
+        </a>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 7. FAQ SECTION                                                            -->
+<!-- ========================================================================= -->
+<section class="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24" id="faq">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-2">よくある質問</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">疑問点や気になる点についてお答えします</p>
+</div>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-surface-variant p-6 transition-all">
+<summary class="flex items-center justify-between cursor-pointer list-none select-none">
+<h3 class="font-headline-sm text-headline-sm text-primary pr-4">Googleカレンダーの予定は変更されますか？</h3>
+<span class="toggle-icon material-symbols-outlined text-outline text-[22px] transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 pt-4 border-t border-surface-variant font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          いいえ、予定が書き換えられることはありません。連携したシフトの予定情報を読み取り、給与見込みの計算にのみ利用します。
+        </p>
+</details>
+<!-- FAQ Item 2 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-surface-variant p-6 transition-all">
+<summary class="flex items-center justify-between cursor-pointer list-none select-none">
+<h3 class="font-headline-sm text-headline-sm text-primary pr-4">掛け持ちのバイトも登録できますか？</h3>
+<span class="toggle-icon material-symbols-outlined text-outline text-[22px] transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 pt-4 border-t border-surface-variant font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          はい、複数のバイト先を登録できます。バイト先ごとに時給・締め日・支払日・手当を設定して一括管理が可能です。
+        </p>
+</details>
+<!-- FAQ Item 3 -->
+<details class="group bg-surface-container-lowest rounded-2xl border border-surface-variant p-6 transition-all">
+<summary class="flex items-center justify-between cursor-pointer list-none select-none">
+<h3 class="font-headline-sm text-headline-sm text-primary pr-4">スマホでも使えますか？</h3>
+<span class="toggle-icon material-symbols-outlined text-outline text-[22px] transition-transform duration-200" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="mt-4 pt-4 border-t border-surface-variant font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          はい、スマートフォンやPCのWebブラウザから快適にご利用いただけます。
+        </p>
+</details>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 8. FINAL CALL TO ACTION (Forest Green Container)                          -->
+<!-- ========================================================================= -->
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24" id="cta">
+<div class="bg-primary-container rounded-3xl p-12 md:p-20 text-center text-surface shadow-md">
+<h2 class="text-[34px] md:text-[40px] font-headline-lg font-bold text-surface tracking-tight mb-4 leading-tight">
+        次の給料日を、<br class="hidden sm:inline"/>もっと楽しみに。
+      </h2>
+<p class="font-body-md text-body-md text-on-primary-container max-w-lg mx-auto mb-10 leading-relaxed">
+        がんばった時間を、確かな見通しへ。<br/>
+        まずはカレンダーをつなぐところから。
+      </p>
+<!-- Citron CTA Button -->
+<div class="inline-block mb-8">
+<a class="inline-flex items-center justify-center gap-3 bg-secondary-container hover:brightness-105 text-primary font-bold px-10 py-4 rounded-xl text-lg transition-transform scale-[0.99] active:opacity-90 shadow-sm" href="#start">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"></path>
+</svg>
+<span>Googleで無料ではじめる</span>
+</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-primary-container tracking-widest">
+        ShiftNote β · 五右衛門テクノロジーズ
+      </p>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 9. MINIMAL FOOTER (Footer from Shared Components JSON)                    -->
+<!-- ========================================================================= -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest full-width border-t border-surface-variant dark:border-tertiary-container flat no shadows">
+<div class="max-w-7xl mx-auto px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<!-- Brand Logo / Identity -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary text-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" data-icon="calendar_month">calendar_month</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">ShiftNote</span>
+<span class="text-body-sm font-body-sm text-outline ml-2">by 五右衛門テクノロジーズ</span>
+</div>
+</div>
+<!-- Links from JSON -->
+<nav class="flex flex-wrap items-center gap-8 text-label-sm font-label-sm">
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-surface-bright transition-colors" href="#terms">利用規約</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-surface-bright transition-colors" href="#privacy">プライバシーポリシー</a>
+<a class="text-on-surface-variant dark:text-outline hover:text-on-surface dark:hover:text-surface-bright transition-colors" href="#contact">お問い合わせ</a>
+</nav>
+<!-- Copyright from JSON -->
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-outline">
+        © 2026 五右衛門テクノロジーズ
+      </p>
+</div>
+</footer>
+</body></html>
